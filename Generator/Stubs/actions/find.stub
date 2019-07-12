@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Containers\{{container-name}}\Actions;
+
+use Porto\Core\Actions\CoreAction;
+use Porto\Core\Requests\Request;
+use Porto\Core\Support\Facades\Porto;
+
+class Find{{model}}ByIdAction extends CoreAction
+{
+    public function run(Request $request)
+    {
+        ${{entity}} = Porto::call('{{container-name}}@Find{{model}}ByIdTask', [$request->id]);
+
+        return ${{entity}};
+    }
+}

@@ -1,0 +1,14 @@
+<?php
+
+namespace App\Containers\{{container-name}}\Actions;
+
+use Porto\Core\Actions\CoreAction;
+use Porto\Core\Support\Facades\Porto;
+
+class {{class-name}} extends CoreAction
+{
+    public function run()
+    {
+        // $var = Porto::call('Container@Task', [$arg1, $arg2, ...]);
+    }
+}

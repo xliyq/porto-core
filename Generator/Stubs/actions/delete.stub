@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Containers\{{container-name}}\Actions;
+
+use Porto\Core\Actions\CoreAction;
+use Porto\Core\Requests\Request;
+use Porto\Core\Support\Facades\Porto;
+
+class Delete{{model}}Action extends CoreAction
+{
+    public function run(Request $request)
+    {
+        return Porto::call('{{container-name}}@Delete{{model}}Task', [$request->id]);
+    }
+}

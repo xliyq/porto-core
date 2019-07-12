@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Containers\{{container-name}}\Actions;
+
+use Porto\Core\Actions\CoreAction;
+use Porto\Core\Requests\Request;
+use Porto\Core\Support\Facades\Porto;
+
+class Update{{model}}Action extends CoreAction
+{
+    public function run(Request $request)
+    {
+        $data = $request->sanitizeInput([
+            // add your request data here
+        ]);
+
+        ${{entity}} = Porto::call('{{container-name}}@Update{{model}}Task', [$request->id, $data]);
+
+        return ${{entity}};
+    }
+}

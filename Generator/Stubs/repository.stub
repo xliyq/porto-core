@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Containers\{{container-name}}\Data\Repositories;
+
+use Porto\Core\Abstracts\Repositories\CoreRepository;
+
+/**
+ * Class {{class-name}}
+ */
+class {{class-name}} extends CoreRepository
+{
+
+    /**
+     * @var array
+     */
+    protected $fieldSearchable = [
+        'id' => '=',
+        // ...
+    ];
+
+}

@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Containers\{{container-name}}\Actions;
+
+use Porto\Core\Actions\CoreAction;
+use Porto\Core\Requests\Request;
+use Porto\Core\Support\Facades\Porto;
+
+class GetAll{{models}}Action extends CoreAction
+{
+    public function run(Request $request)
+    {
+        ${{entities}} = Porto::call('{{container-name}}@GetAll{{models}}Task', [], ['addRequestCriteria']);
+
+        return ${{entities}};
+    }
+}

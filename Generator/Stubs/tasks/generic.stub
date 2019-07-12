@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Containers\{{container-name}}\Tasks;
+
+use Porto\Core\Tasks\CoreTask;
+
+class {{class-name}} extends CoreTask
+{
+
+    public function __construct()
+    {
+        // ..
+    }
+
+    public function run()
+    {
+        // ..
+    }
+}
