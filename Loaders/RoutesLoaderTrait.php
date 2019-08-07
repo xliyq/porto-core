@@ -63,30 +63,28 @@ trait RoutesLoaderTrait
      */
     private function loadApiRoute($file, $controllerNamespace) {
 
-        $prefix = is_string($file) ? $file : $this->getApiVersionPrefix($file);
-
-        Route::prefix($prefix)
-            ->middleware($this->getMiddlewares())
-            ->namespace($controllerNamespace)
+//        $prefix = is_string($file) ? $file : $this->getApiVersionPrefix($file);
+        $group = $this->getRouteGroup($file, $controllerNamespace);
+        Route::prefix($group['prefix'])
+            ->middleware($group['middleware'])
+            ->namespace($group['namespace'])
             ->group($file);
     }
 
-//    /**
-//     * @deprecated
-//     *
-//     * @param      $endpointFileOrPrefixString
-//     * @param null $controllerNamespace
-//     *
-//     * @return array
-//     */
-//    public function getRouteGroup($endpointFileOrPrefixString, $controllerNamespace = null) {
-//        return [
-//            'namespace'  => $controllerNamespace,
-//            'middleware' => $this->getMiddlewares(),
-//            'domain'     => $this->getApiUrl(),
-//            'prefix'     => is_string($endpointFileOrPrefixString) ? $endpointFileOrPrefixString : $this->getApiVersionPrefix($endpointFileOrPrefixString),
-//        ];
-//    }
+    /**
+     *
+     * @param      $endpointFileOrPrefixString
+     * @param null $controllerNamespace
+     *
+     * @return array
+     */
+    public function getRouteGroup($endpointFileOrPrefixString, $controllerNamespace = null) {
+        return [
+            'namespace'  => $controllerNamespace,
+            'middleware' => $this->getMiddlewares(),
+            'prefix'     => $this->getApiVersionPrefix($endpointFileOrPrefixString),
+        ];
+    }
 
 //    /**
 //     * @deprecated
