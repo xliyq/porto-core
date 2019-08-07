@@ -4,8 +4,8 @@
 namespace Porto\Core\Resources;
 
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Resources\Json\ResourceCollection;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Porto\Core\Exceptions\CoreInternalErrorException;
 use Porto\Core\Exceptions\UnsupportedResourceIncludeException;
@@ -49,7 +49,7 @@ class ResourceInclude
      */
     public function __construct(CoreResource $resource, ResourceInclude $resourceInclude = null) {
         //当前标识符
-        if ($resource->resource) {
+        if ($resource->resource && $resource->resource instanceof Model) {
             $this->identifier = $resource->resource->getResourceKey();
         }
 
